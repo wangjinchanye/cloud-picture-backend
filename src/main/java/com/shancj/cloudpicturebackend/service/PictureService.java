@@ -2,10 +2,7 @@ package com.shancj.cloudpicturebackend.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.shancj.cloudpicturebackend.model.dto.picture.PictureQueryRequest;
-import com.shancj.cloudpicturebackend.model.dto.picture.PictureReviewRequest;
-import com.shancj.cloudpicturebackend.model.dto.picture.PictureUploadByBatchRequest;
-import com.shancj.cloudpicturebackend.model.dto.picture.PictureUploadRequest;
+import com.shancj.cloudpicturebackend.model.dto.picture.*;
 import com.shancj.cloudpicturebackend.model.entity.Picture;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.shancj.cloudpicturebackend.model.entity.User;
@@ -99,5 +96,28 @@ public interface PictureService extends IService<Picture> {
      * @param oldPicture
      */
     void clearPictureFile(Picture oldPicture);
+
+
+    /**
+     * 权限校验
+     * @param loginUser
+     * @param picture
+     */
+    void checkPictureAuth(User loginUser, Picture picture);
+
+    /**
+     * 删除图片
+     * @param pictureId
+     * @param loginUser
+     */
+    void deletePicture(long pictureId, User loginUser);
+
+    /**
+     * 编辑图片
+     *
+     * @param pictureEditRequest 图片编辑请求
+     * @param loginUser          登录的用户
+     */
+    void editPicture(PictureEditRequest pictureEditRequest, User loginUser);
 
 }

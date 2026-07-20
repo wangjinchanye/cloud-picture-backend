@@ -26,12 +26,13 @@
             <result property="reviewTime" column="reviewTime" />
             <result property="isDelete" column="isDelete" />
             <result property="thumbnailUrl" column="thumbnailUrl" jdbcType="VARCHAR"/>
+            <result property="spaceId" column="spaceId" />
 
     </resultMap>
 
     <sql id="Base_Column_List">
         id,url,name,introduction,category,tags,
         picSize,picWidth,picHeight,picScale,picFormat,
-        userId,createTime,editTime,updateTime,reviewStatus,reviewMessage,reviewerId,reviewTime,isDelete,thumbnailUrl
+        userId,createTime,editTime,updateTime,reviewStatus,reviewMessage,reviewerId,reviewTime,isDelete,thumbnailUrl,spaceId
     </sql>
 </mapper>
