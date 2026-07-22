@@ -18,7 +18,7 @@ public class Picture implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -115,6 +115,11 @@ public class Picture implements Serializable {
      * 空间 id
      */
     private Long spaceId;
+
+    /**
+     * 图片主色调
+     */
+    private String picColor;
 
     /**
      * 是否删除

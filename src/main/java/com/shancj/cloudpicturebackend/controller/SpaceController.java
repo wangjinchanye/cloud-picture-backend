@@ -41,6 +41,17 @@ public class SpaceController {
     private UserService userService;
 
     /**
+     * 新增空间
+     */
+    @PostMapping("/add")
+    public BaseResponse<Long> addSpace(@RequestBody SpaceAddRequest spaceAddRequest, HttpServletRequest request) {
+        ThrowUtils.throwIf(spaceAddRequest == null, ErrorCode.PARAMS_ERROR);
+        User loginUser = userService.getLoginUser(request);
+        long newId = spaceService.addSpace(spaceAddRequest, loginUser);
+        return ResultUtils.success(newId);
+    }
+
+    /**
      * 删除空间
      */
     @PostMapping("/delete")

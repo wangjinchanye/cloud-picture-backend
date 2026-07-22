@@ -7,9 +7,11 @@ import com.shancj.cloudpicturebackend.model.entity.Picture;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.shancj.cloudpicturebackend.model.entity.User;
 import com.shancj.cloudpicturebackend.model.vo.PictureVO;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author 28950
@@ -120,4 +122,21 @@ public interface PictureService extends IService<Picture> {
      */
     void editPicture(PictureEditRequest pictureEditRequest, User loginUser);
 
+    /**
+     * 按照颜色相似度查询图片
+     *
+     * @param spaceId spaceId
+     * @param picColor 颜色
+     * @param loginUser 登录的用户
+     * @return 图片 vo 结合
+     */
+    List<PictureVO> searchPictureByColor(Long spaceId, String picColor, User loginUser);
+
+    /**
+     * 批量更新
+     *
+     * @param pictureEditByBatchRequest pictureEditByBatchRequest
+     * @param loginUser                 登录的用户
+     */
+    void editPictureByBatch(PictureEditByBatchRequest pictureEditByBatchRequest, User loginUser);
 }

@@ -27,12 +27,13 @@
             <result property="isDelete" column="isDelete" />
             <result property="thumbnailUrl" column="thumbnailUrl" jdbcType="VARCHAR"/>
             <result property="spaceId" column="spaceId" />
+            <result property="picColor" column="picColor"/>
 
     </resultMap>
 
     <sql id="Base_Column_List">
         id,url,name,introduction,category,tags,
         picSize,picWidth,picHeight,picScale,picFormat,
-        userId,createTime,editTime,updateTime,reviewStatus,reviewMessage,reviewerId,reviewTime,isDelete,thumbnailUrl,spaceId
+        userId,createTime,editTime,updateTime,reviewStatus,reviewMessage,reviewerId,reviewTime,isDelete,thumbnailUrl,spaceId,picColor
     </sql>
 </mapper>
